@@ -21,10 +21,42 @@ int main(){
 #include <stdio.h>
 #include <stdlib.h>
 int main(){
-    bool is_true = true;
-    bool is_false = false;
-    printf("%d\n",is_true); \\輸出1
-    printf("%d\n",is_false); \\輸出0
+    bool is_true = true; //true
+    bool is_false = false; //false
+    printf("%d\n",is_true); //輸出1
+    printf("%d\n",is_false); //輸出0
     return 0;
+}
+```
+
+範例：簡易計算器  
+```c
+#include <stdio.h>
+#include <stdbool.h>
+int main(){
+    int num_1; //第一個數字
+    int num_2; //第二個數字
+    bool is_true; //布林值判斷
+    printf("Please enter two integer numbers: ");
+    scanf("%d %d",&num_1,&num_2);
+    printf("%d + %d = %4d\n",num_1,num_2,num_1+num_2); //加法
+    printf("%d - %d = %4d\n",num_1,num_2,num_1-num_2); //減法
+    printf("%d * %d = %4d\n",num_1,num_2,num_1*num_2); //乘法
+
+    //if 判斷 num_2是否為0，非0是true;0則是false
+    if(num_2 != 0){ 
+        is_true = true; //當 num_2 不是 0 時，輸出這一行
+    }else{
+        is_true = false; // 當 num_2 不是 0 時，輸出這一行
+    }
+
+    if (is_true){
+        printf("%d / %d = %4d\n",num_1,num_2,num_1/num_2); //除法，只有當 num_2 不是 0 時，才會輸出這一行
+        printf("%d %% %d = %4d\n",num_1,num_2,num_1%num_2); //餘數，只有當 num_2 不是 0 時，才會輸出這一行
+    }else{
+        printf("Division: The second operand cannot be zero.\n"); //num_2 是0時，輸出這一行
+        printf("Modules: The second operand cannot be zero.\n"); //num_2 是0時，輸出這一行
+    }
+    
 }
 ```
