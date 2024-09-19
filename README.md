@@ -56,7 +56,19 @@
 
 
 ## 基本語法
--(1.布林值)[#1.-布林值]
+
+1. [布林值（Boolean）](#布林值boolean)
+2. [if/switch 條件判斷](#ifswitch-條件判斷)
+3. [while/for 迴圈](#whilefor-迴圈)
+4. [變數與類型](#變數與類型)
+5. [數組（Array）](#數組array)
+6. [指標（Pointer）](#指標pointer)
+7. [結構體（Struct）](#結構體struct)
+8. [列舉（Enum）](#列舉enum)
+9. [位元運算（Bitwise Operation）](#位元運算bitwise-operation)
+10. [函式（Function）](#函式function)
+11. [字元（Character）](#字元character)
+12. [字串（String）](#字串string)
 ### 1. 布林值
 
 - **布林值（Boolean）**
