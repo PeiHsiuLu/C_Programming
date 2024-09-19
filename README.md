@@ -334,5 +334,111 @@
 
 ---
 
-這些筆記涵蓋了 C 語言的常見數據類型、陣列、指標等概念，這樣應該能幫助你更好地整理 C 語言的筆記。希望有幫助！
+---
+
+### 8. 條件判斷（if/switch）
+
+- **if 語句**
+  - `if` 語句用於條件判斷，如果條件為真，則執行對應的程式區塊：
+    ```c
+    int a = 5;
+    if (a > 3) {
+        printf("a 大於 3\n");
+    }
+    ```
+
+- **else if 和 else**
+  - 當多個條件需要檢查時，可以使用 `else if` 和 `else`：
+    ```c
+    int a = 5;
+    if (a > 10) {
+        printf("a 大於 10\n");
+    } else if (a == 5) {
+        printf("a 等於 5\n");
+    } else {
+        printf("a 小於 5\n");
+    }
+    ```
+
+- **switch 語句**
+  - `switch` 語句用於檢查變量的多個值，通常用於取代多個 `if-else` 結構：
+    ```c
+    int day = 3;
+    switch(day) {
+        case 1:
+            printf("星期一\n");
+            break;
+        case 2:
+            printf("星期二\n");
+            break;
+        case 3:
+            printf("星期三\n");
+            break;
+        default:
+            printf("無效的日期\n");
+    }
+    ```
+  - 每個 `case` 代表一個條件，如果匹配到相應的值，執行對應的區塊並使用 `break` 終止。
+
+---
+
+### 9. 迴圈（while/for loop）
+
+- **while 迴圈**
+  - `while` 迴圈會在條件為真的情況下不斷執行，直到條件變為假：
+    ```c
+    int i = 0;
+    while (i < 5) {
+        printf("%d\n", i);
+        i++;
+    }
+    ```
+
+- **do-while 迴圈**
+  - `do-while` 迴圈至少會執行一次，因為條件是在執行後檢查：
+    ```c
+    int i = 0;
+    do {
+        printf("%d\n", i);
+        i++;
+    } while (i < 5);
+    ```
+
+- **for 迴圈**
+  - `for` 迴圈有一個初始化部分、條件部分和更新部分，通常用於執行固定次數的迴圈：
+    ```c
+    for (int i = 0; i < 5; i++) {
+        printf("%d\n", i);
+    }
+    ```
+
+- **範例：計算總和**
+  - 迴圈常用來執行重複計算，例如計算總和：
+    ```c
+    int sum = 0;
+    for (int i = 1; i <= 100; i++) {
+        sum += i;
+    }
+    printf("1 到 100 的總和是: %d\n", sum);
+    ```
+
+- **break 和 continue**
+  - `break`：在迴圈中使用 `break` 來提前終止迴圈。
+  - `continue`：跳過本次迴圈的其餘部分，直接進入下一次迴圈。
+
+    ```c
+    for (int i = 0; i < 10; i++) {
+        if (i == 5) {
+            break;  // 當 i 等於 5 時，終止迴圈
+        }
+        if (i % 2 == 0) {
+            continue;  // 當 i 是偶數時，跳過當前次的迴圈
+        }
+        printf("%d\n", i);  // 只會輸出奇數
+    }
+    ```
+
+---
+
+
 
