@@ -440,6 +440,163 @@
     ```
 
 ---
+---
+
+### 10. 函式（Function）
+
+- **函式的定義**
+  - 在 C 語言中，函式是一組執行特定任務的程式碼。函式通常包括函式名稱、參數列表和返回值類型。
+  - 函式的基本結構如下：
+    ```c
+    返回值類型 函式名稱(參數類型 參數名稱) {
+        // 函式主體
+        return 返回值;
+    }
+    ```
+
+- **範例：簡單的函式**
+  - 例如，一個返回兩個整數和的函式：
+    ```c
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int main() {
+        int result = add(3, 5);
+        printf("3 + 5 = %d\n", result);
+        return 0;
+    }
+    ```
+
+- **函式宣告與定義**
+  - 在使用函式前，你需要先宣告它，這樣編譯器才知道它的存在：
+    ```c
+    int add(int a, int b);  // 函式宣告
+
+    int main() {
+        int result = add(3, 5);
+        printf("3 + 5 = %d\n", result);
+        return 0;
+    }
+
+    int add(int a, int b) {  // 函式定義
+        return a + b;
+    }
+    ```
+
+- **傳值呼叫（Call by Value）**
+  - 在 C 語言中，函式的參數是按值傳遞的，也就是說，函式內部的變量是一個副本，對它的修改不會影響到原變量：
+    ```c
+    void modify(int x) {
+        x = 10;
+    }
+
+    int main() {
+        int a = 5;
+        modify(a);
+        printf("a = %d\n", a);  // 輸出仍然是 5
+        return 0;
+    }
+    ```
+
+---
+
+### 11. 字元（Character）
+
+- **字元類型**
+  - 在 C 語言中，字元（`char`）是一個基本數據類型，用於儲存單一字元。每個字元都對應一個 ASCII 編碼值。
+    ```c
+    char letter = 'A';
+    printf("字元: %c, ASCII 值: %d\n", letter, letter);  // 輸出：字元: A, ASCII 值: 65
+    ```
+
+- **範例：字元的操作**
+  - 可以使用字元進行數學運算，因為字元實際上是數字的表現：
+    ```c
+    char ch = 'A';
+    printf("下一個字母: %c\n", ch + 1);  // 輸出：下一個字母: B
+    ```
+
+- **特殊字元**
+  - 常見的特殊字元有：
+    - `\n`：換行
+    - `\t`：水平製表符
+    - `\\`：反斜槓
+    - `\'`：單引號
+    - `\"`：雙引號
+
+---
+
+### 12. 字串（String）
+
+- **字串的定義**
+  - 在 C 語言中，字串實際上是由 `char` 組成的字符陣列，並以空字元（`'\0'`）結尾。這樣編譯器才能識別字串的結尾。
+    ```c
+    char str[] = "Hello, World!";
+    printf("%s\n", str);  // 輸出：Hello, World!
+    ```
+
+- **字串操作**
+  - C 語言中有一些標準函式可以對字串進行操作，例如複製、連接和比較。這些函式通常包含在 `<string.h>` 中。
+  
+  - **字串長度：`strlen`**
+    ```c
+    #include <string.h>
+
+    int main() {
+        char str[] = "Hello";
+        printf("字串長度: %lu\n", strlen(str));  // 輸出：字串長度: 5
+        return 0;
+    }
+    ```
+
+  - **複製字串：`strcpy`**
+    ```c
+    #include <string.h>
+
+    int main() {
+        char str1[20];
+        char str2[] = "C Programming";
+        strcpy(str1, str2);  // 將 str2 複製到 str1
+        printf("str1: %s\n", str1);  // 輸出：str1: C Programming
+        return 0;
+    }
+    ```
+
+  - **連接字串：`strcat`**
+    ```c
+    #include <string.h>
+
+    int main() {
+        char str1[20] = "Hello, ";
+        char str2[] = "World!";
+        strcat(str1, str2);  // 將 str2 連接到 str1
+        printf("str1: %s\n", str1);  // 輸出：str1: Hello, World!
+        return 0;
+    }
+    ```
+
+  - **比較字串：`strcmp`**
+    ```c
+    #include <string.h>
+
+    int main() {
+        char str1[] = "Hello";
+        char str2[] = "World";
+        int result = strcmp(str1, str2);  // 比較 str1 和 str2
+        if (result == 0) {
+            printf("字串相等\n");
+        } else {
+            printf("字串不相等\n");
+        }
+        return 0;
+    }
+    ```
+
+- **注意事項**
+  - 字串在 C 中的大小是固定的，因此需要事先分配足夠的記憶體空間，否則可能導致溢出問題。
+
+---
 
 
 
