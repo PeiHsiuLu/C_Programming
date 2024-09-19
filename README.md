@@ -7,64 +7,82 @@
 ## ANSI escape codes
 
 ## 基本語法
-- (1.布林值)[#1.布林值]
-### 1.布林值
-以下是使用布林值與 if condition 判斷 true or false 
-```c
-#include <stdio.h>
-#include <stdbool.h> //若是使用C++語法撰寫，不需要寫這一行，因為C++內就有涵蓋布林值
-int main(){
-    bool is_valid = false;//使用布林值 //false
-    if(is_valid){
-        printf("The value is true."); //is_valid=true 時，輸出這一行程式
-    }else{
-        printf("The value is false.");//is_valid=false 時，輸出這一行程式
-    }
-    printf("\n"); //換行
-    return 0;
-}
-```
-布林值中的true or false 可以用整數來表示 
-```c
-#include <stdio.h>
-#include <stdlib.h>
-int main(){
-    bool is_true = true; //true
-    bool is_false = false; //false
-    printf("%d\n",is_true); //輸出1
-    printf("%d\n",is_false); //輸出0
-    return 0;
-}
-```
+### 1. 布林值
 
-範例：簡易計算器  
-```c
-#include <stdio.h>
-#include <stdbool.h>
-int main(){
-    int num_1; //第一個數字
-    int num_2; //第二個數字
-    bool is_true; //布林值判斷
-    printf("Please enter two integer numbers: ");
-    scanf("%d %d",&num_1,&num_2);
-    printf("%d + %d = %4d\n",num_1,num_2,num_1+num_2); //加法
-    printf("%d - %d = %4d\n",num_1,num_2,num_1-num_2); //減法
-    printf("%d * %d = %4d\n",num_1,num_2,num_1*num_2); //乘法
+- **布林值（Boolean）**
+  - 在 C 中，布林值並不是標準的數據類型，但可以透過標準庫 `<stdbool.h>` 使用 `bool` 類型。
+  - 布林值有兩種：`true` 和 `false`，它們實際上是整數類型，其中 `true` 代表 1，`false` 代表 0。
 
-    //if 判斷 num_2是否為0，非0是true;0則是false
-    if(num_2 != 0){ 
-        is_true = true; //當 num_2 不是 0 時，輸出這一行
-    }else{
-        is_true = false; // 當 num_2 不是 0 時，輸出這一行
-    }
+    ```c
+    #include <stdbool.h>
 
-    if (is_true){
-        printf("%d / %d = %4d\n",num_1,num_2,num_1/num_2); //除法，只有當 num_2 不是 0 時，才會輸出這一行
-        printf("%d %% %d = %4d\n",num_1,num_2,num_1%num_2); //餘數，只有當 num_2 不是 0 時，才會輸出這一行
-    }else{
-        printf("Division: The second operand cannot be zero.\n"); //num_2 是0時，輸出這一行
-        printf("Modules: The second operand cannot be zero.\n"); //num_2 是0時，輸出這一行
+    bool a = true;
+    bool b = false;
+    ```
+
+- **布林運算**
+  - 在 C/C++ 中，布林值可以進行邏輯運算，這些運算符包括：
+    - **`&&`（邏輯與運算）**：如果兩個條件都為 `true`，結果才會是 `true`。
+      ```c
+      bool a = true;
+      bool b = false;
+      printf("%d\n", a && b);  // 結果是 0（false）
+      ```
+
+    - **`||`（邏輯或運算）**：只要其中一個條件為 `true`，結果就是 `true`。
+      ```c
+      bool a = true;
+      bool b = false;
+      printf("%d\n", a || b);  // 結果是 1（true）
+      ```
+
+    - **`!`（邏輯非運算）**：將布林值的真偽進行反轉，`true` 變 `false`，`false` 變 `true`。
+      ```c
+      bool a = true;
+      printf("%d\n", !a);  // 結果是 0（false）
+      ```
+
+- **比較運算符**
+  - 常見的比較運算符可用於產生布林結果：
+    - **`==`（等於）**：判斷兩個值是否相等，返回 `true` 或 `false`。
+      ```c
+      int x = 5;
+      int y = 5;
+      printf("%d\n", x == y);  // 結果是 1（true）
+      ```
+
+    - **`!=`（不等於）**：判斷兩個值是否不相等。
+      ```c
+      int x = 5;
+      int y = 3;
+      printf("%d\n", x != y);  // 結果是 1（true）
+      ```
+
+    - **`>`、`<`、`>=`、`<=`（比較運算）**：比較兩個值的大小。
+      ```c
+      int x = 5;
+      int y = 3;
+      printf("%d\n", x > y);  // 結果是 1（true）
+      printf("%d\n", x <= y); // 結果是 0（false）
+      ```
+
+- **布林值的應用**
+  - 在 C/C++ 中，布林值廣泛應用於條件判斷中，例如 `if` 語句：
+    ```c
+    int a = 5;
+    if (a > 3) {
+        printf("a 比 3 大\n");
     }
-    
-}
-```
+    ```
+
+  - 布林值也常用於迴圈結構，例如 `while` 循環：
+    ```c
+    int a = 0;
+    while (a < 5) {
+        printf("%d\n", a);
+        a++;
+    }
+    ```
+
+  - 邏輯運算的結果可以用來控制程序的執行流程。
+
